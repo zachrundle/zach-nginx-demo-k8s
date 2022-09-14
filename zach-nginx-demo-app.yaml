@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zach-nginx-demo
+  labels:
+    app: zach-nginx-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zach-nginx-demo
+  template:
+    metadata:
+      labels:
+        app: zach-nginx-demo
+    spec:
+      containers:
+      - name: zach-nginx-demo
+        image: nginxdemos/hello
+        ports:
+        - containerPort: 80
